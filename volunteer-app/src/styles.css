@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* ---------- GENERAL -------------- */
+
+body {
+    background-color: lightcyan;
+    font-family: Verdana, sans-serif;
+}
+
+h2 {
+    color:mediumslateblue
+}
+
+
+
+/* ---------- MENU BAR -------------- */
+
+/* menu bar background color */
+.topnav {
+    background-color:rgb(141, 124, 236);
+    overflow: hidden;
+  }
+  
+/* menu bar links*/
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+/* menu bar on hover */
+.topnav a:hover {
+    background-color: whitesmoke;
+    color: mediumslateblue;
+}
+  
+/* menu bar active/current link */
+.topnav a.active {
+    background-color: rgb(95, 13, 172);
+    color: white;
+}
+
+/* hide certain options when logged in/out*/
+.topnav .hidden {
+    display: none;
+}
+
+
+/* ---------- FORMS -------------- */
+
+.form-container {
+    width: 40%;
+    border: 3px solid mediumslateblue;
+    padding: 10px 10px;
+    border-radius: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 10px 0px;
+}
+
+
+button {
+    width: 100%;
+    color: white;
+    background-color:rgb(168, 155, 241);
+    font-size:large;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: whitesmoke;
+    color: mediumslateblue;
+    border-color: mediumslateblue;
+    cursor: pointer;
+}

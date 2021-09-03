@@ -1,0 +1,26 @@
+<h2>Register to Volunteer at an Event</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="submit()" class="form-container">
+    <h2>Register for Event</h2>
+    <div>
+        <select id='volunteer-id' formControlName="volunteer">
+            <option [ngValue]="null" disabled>Select Volunteer</option>
+            <option *ngFor="let volunteer of volunteers" [ngValue]="volunteer.id" [id]="volunteer.id"> {{ volunteer.name }} </option>
+        </select>
+        <div id="required-volunter-id" *ngIf="submitted && !registerForm.controls.volunteer?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <div>
+        <select id='reg-event-id' formControlName="event">
+            <option [ngValue]="null" disabled>Select Event</option>
+
+            <option *ngFor="let event of events" [ngValue]="event.id" [id]="event.id"> {{ event.name }} </option>
+            <!-- <option id="test-event" value="null"> Test Event</option> -->
+
+        </select>
+        <div id="required-event-id" *ngIf="submitted && !registerForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    
+    <button id='reg-vol-button' type="submit" style="padding:3px; margin:5px">Register for Event</button>
+    <div id="error-message" *ngIf="submitted && !success" style="font-size:smaller;color:red">{{message}}</div>
+    <div id="success-message" *ngIf="submitted && success" style="font-size:smaller;color:green">{{message}}</div>
+</form>

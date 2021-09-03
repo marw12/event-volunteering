@@ -1,0 +1,65 @@
+<h2>Update Event Information</h2>
+<h3>Type in new changes</h3>
+<form [formGroup]="updateEventForm" class="form-container">
+    <h2>Update Event</h2>
+
+    <!-- Select event to update information -->
+    <div class="form-group">
+        <label for="updateEventSelected">Select Event to update</label>
+        <select id='event-update' formControlName="event">
+            <option [ngValue]="null" disabled>Select Event to update</option>
+            <option *ngFor="let event of events" [ngValue]="event.id"> {{ event.name }} </option>
+        </select>
+        <div id="required-event-to-update" *ngIf="submitted && !updateEventForm.controls.event?.valid"
+            style="font-size:smaller;color:red"> Event selection required</div>
+    </div>
+
+    <!-- Event Name -->
+    <div class="form-group">
+        <label for="updateEventName">Name</label>
+        <input type="text" class='form-control' formControlName="updateEventName" id="updateEventName" />
+    </div>
+
+    <p><button (click)="updateEventName()" id="updateEventNameBtn">Change Name</button></p>
+    <p><span id='displayUpdateEventName'></span></p>
+
+    <!-- Event Category -->
+    <div class="form-group">
+        <label for="updateEventCategory">Category</label>
+        <input type="text" class='form-control' formControlName="updateEventCategory" id="updateEventCategory" />
+    </div>
+
+    <p><button (click)="updateEventCategory()" id="updateEventCategoryBtn">Change Category</button></p>
+    <p><span id='displayUpdateEventCategory'></span></p>
+
+    <!-- Event Date -->
+    <div class="form-group">
+        <label for="updateEventDate">Date</label>
+        <input type="date" class='form-control' formControlName="updateEventDate" id="updateEventDate"
+            [ngClass]="{'is-invalid':submitted && f.date.errors}" />
+
+    </div>
+
+    <p><button (click)="updateEventDate()" id="updateEventDateBtn">Change Date</button></p>
+    <p><span id='displayUpdateEventDate'></span></p>
+
+    <!-- Event Start Time -->
+    <div class="form-group">
+        <label for="updateEventStartTime">Start Time</label>
+        <input type="time" class='form-control' formControlName="updateEventStartTime" id="updateEventStartTime"
+            [ngClass]="{'is-invalid': submitted && f.time.errors}" />
+    </div>
+
+    <p><button (click)="updateEventStartTime()" id="updateEventStartTimeBtn">Change Start Time</button></p>
+    <p><span id='displayUpdateEventStartTime'></span></p>
+
+    <!-- Event End time -->
+    <div class="form-group">
+        <label for="updateEventEndTime">End Time</label>
+        <input type="time" class='form-control' formControlName="updateEventEndTime" id="updateEventEndTime"
+            [ngClass]="{'is-invalid': submitted && f.updateEventEndTime.errors}" />
+    </div>
+
+    <p><button (click)="updateEventEndTime()" id="updateEventEndTimeBtn">Change End Date</button></p>
+    <p><span id='displayUpdateEventEndTime'></span></p>
+</form>

@@ -1,0 +1,48 @@
+<!-- <app-login></app-login>
+<app-create-volunteer></app-create-volunteer>
+<app-create-event></app-create-event>
+
+<app-assign-task></app-assign-task>
+
+
+<app-add-event-tasks></app-add-event-tasks> -->
+<h2>Team JellyFish Volunteering App</h2>
+
+<div class="topnav">
+    <a href="/login" id="login"
+        [ngClass]="{'active' : router.url == '/login',
+     'hidden' : router.url !== '/login' && router.url !== '/signup-volunteer' && router.url !== '/signup-organiser' && router.url !== '/'}">Login
+    </a>
+    <a href="/signup-volunteer"
+        [ngClass]="{'active' : router.url == '/signup-volunteer',
+    'hidden' : router.url !== '/login' && router.url !== '/signup-volunteer' && router.url !== '/signup-organiser' && router.url !== '/'}">Create
+        New Volunteer Account</a>
+    <a href="/signup-organiser"
+        [ngClass]="{'active' : router.url == '/signup-organiser',
+    'hidden' : router.url !== '/login' && router.url !== '/signup-volunteer' && router.url !== '/signup-organiser' && router.url !== '/'}">Create
+        New Organizer Account</a>
+
+    <a href="/homepage"
+        [ngClass]="{'active' : router.url.includes('/homepage'),
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Home</a>
+    <a href="/update-user" [ngClass]="{'active' : router.url == '/update-user',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Update Profile</a>
+    <a href="/create-event" [ngClass]="{'active' : router.url == '/create-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Create New Event</a>
+    <a href="/event-registration" [ngClass]="{'active' : router.url == '/event-registration',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Register for Event</a>
+    <a href="/volunteer-unregister-event" [ngClass]="{'active' : router.url == '/volunteer-unregister-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Unregister from Event</a>
+    <a href="/add-comment-event" [ngClass]="{'active' : router.url == '/add-comment-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Add Comment to Event</a>
+    <a href="/delete-event" [ngClass]="{'active' : router.url == '/delete-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Delete Event</a>
+    <a href="login" style="float:right;" [ngClass]="{'active' : router.url == '/volunteer-unregister-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Log Out</a>
+    <a href="/update-event"
+        [ngClass]="{'active' : router.url == '/update-event',
+    'hidden' : router.url == '/login' || router.url == '/signup-volunteer' || router.url == '/signup-organiser' || router.url == '/'}">Update
+        Event</a>
+</div>
+
+<router-outlet></router-outlet>

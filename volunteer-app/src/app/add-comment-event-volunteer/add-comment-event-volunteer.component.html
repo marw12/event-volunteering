@@ -1,0 +1,24 @@
+<h2>Volunteer add comment to Event</h2>
+
+<form [formGroup]="addCommentForm" (ngSubmit)="submit()" class="form-container">
+    <h3>Add Comment to event</h3>
+    <div>
+        <select id='comment-event-id' formControlName="event" style="padding:3px; margin:5px; min-width:10%">
+            <option [ngValue]="null" disabled>Select Event</option>
+            <option *ngFor="let event of vEventsFor" [ngValue]="event.id"> {{ event.name }} </option>
+        </select>
+        <div id="required-event-id" *ngIf="submitted && !addCommentForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+
+    <div>
+        <input type='text' 
+        id='add-comment-vol' formControlName="comment" placeholder='Add comment' style="padding:3px; margin:5px; min-width:10%">
+        <div id="required-comment" *ngIf="submitted && !addCommentForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+    </div> 
+
+    <button id='comment-submit-button' type="submit" style="padding:3px; margin:5px">Add Comment to Event</button>
+    <div id="message" *ngIf="submitted && !success" style="font-size:smaller;color:red">{{message}}</div>
+    <div id="success-message-add-comment" *ngIf="submitted && success" style="font-size:smaller;color:green">{{message}}</div>
+  </form>
+
+

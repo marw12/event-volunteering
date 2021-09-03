@@ -1,0 +1,10 @@
+body { padding: 20px; }
+
+.ng-valid:not(form):not(.ng-untouched),
+.ng-valid.required {
+  background-color: lightgreen;
+}
+
+.ng-invalid:not(form):not(.ng-untouched) {
+  background-color: lightcoral;
+}

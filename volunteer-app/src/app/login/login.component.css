@@ -1,0 +1,10 @@
+body { padding: 20px; }
+
+/* .ng-valid:not(loginForm):not(.ng-untouched),
+.ng-valid.required {
+  background-color: rgb(211, 255, 211);
+}
+
+.ng-invalid:not(loginForm):not(.ng-untouched) {
+  background-color: rgb(255, 208, 208);
+} */

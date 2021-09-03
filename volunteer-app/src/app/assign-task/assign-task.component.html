@@ -1,0 +1,29 @@
+<p>assign-task works</p>
+
+<form [formGroup]="assignForm" (ngSubmit)="submit()" class="form-container">
+    <div>
+        <select id='volunteer-id' formControlName="volunteer" style="padding:3px; margin:5px; min-width:10%">
+            <option [ngValue]="null" disabled>Select Volunteer</option>
+            <option *ngFor="let volunteer of volunteers" [ngValue]="volunteer.id" [id]="volunteer.id"> {{ volunteer.name }} (ID={{ volunteer.id }})</option>
+        </select>
+        <div id="required-volunter-id" *ngIf="submitted && !assignForm.controls.volunteer?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <div>
+        <select id='event-id' formControlName="event" (change)='update()'> tyle="padding:3px; margin:5px; min-width:10%">
+            <option [ngValue]="null" disabled>Select Event</option>
+            <option *ngFor="let event of events" [ngValue]="event.id"> {{ event.name }} (ID={{ event.id }})</option>
+            <option id="test-event" value="null"> Test Event</option>
+        </select>
+        <div id="required-event-id" *ngIf="submitted && !assignForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <div>
+        <select id='task-id' formControlName="task" style="padding:3px; margin:5px; min-width:10%">
+            <option [ngValue]="null" disabled>Select Event</option>
+            <option *ngFor="let task of tasks" [ngValue]="task.id"> {{ task.name }}</option>
+        </select>
+        <div id="required-task-id" *ngIf="submitted && !assignForm.controls.task?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <button id='submit-button' type="submit" style="padding:3px; margin:5px">Register for Task</button>
+    <div id="message" *ngIf="submitted && !success" style="font-size:smaller;color:red">{{message}}</div>
+    <div id="success-message" *ngIf="submitted && success" style="font-size:smaller;color:green">{{message}}</div>
+</form>

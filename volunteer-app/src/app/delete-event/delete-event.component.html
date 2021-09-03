@@ -1,0 +1,21 @@
+<h2>Delete An Event</h2>
+<form [formGroup]="assignForm" (ngSubmit)="submit()" class="form-container">
+    <h2>Delete Event</h2>
+    <div>
+        <select id='organizer-id-delete-event' formControlName="organizer">
+            <option [ngValue]="null" disabled>Select organizer</option>
+            <option *ngFor="let organizer of organizers" [ngValue]="organizer.id" [id]="organizer.id"> {{ organizer.name }} (ID={{ organizer.id }})</option>
+        </select>
+        <div id="required-volunter-id" *ngIf="submitted && !assignForm.controls.organizer?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <div>
+        <select id='event-id-delete-event' formControlName="event">
+            <option [ngValue]="null" disabled>Select Event</option>
+            <option *ngFor="let event of events" [ngValue]="event.id" [id]="event.id"> {{ event.name }} (Organizer={{ event.organizer }})</option>
+        </select>
+        <div id="required-event-id" *ngIf="submitted && !assignForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+    </div>
+    <button id='submit-button' type="submit" style="padding:3px; margin:5px">Delete Event</button>
+    <div id="error-message" *ngIf="submitted && !success" style="font-size:smaller;color:red">{{message}}</div>
+    <div id="success-message" *ngIf="submitted && success" style="font-size:smaller;color:green">{{message}}</div>
+</form>

@@ -1,0 +1,34 @@
+<h2>Create New Volunteer Account</h2>
+<form [formGroup]="form" (ngSubmit)="createVolunteerAccount()" class="form-container">
+    <h2>Volunteer Signup</h2>
+        <p>
+            <label>First Name:</label>
+            <input id="firstName" name="firstName" type="text" formControlName="firstName">
+        </p>
+        <p>
+            <label>Last Name:</label>
+            <input id="lastName" name="lastName" type="text" formControlName="lastName">
+        </p>
+        <p>
+            <label>Email Address:</label>
+            <input id="emailAddress" name="emailAddress" type="text" formControlName="emailAddress">
+        </p>
+        <p>
+            <label>Password:</label>
+            <input id="password" name="password" type="password" formControlName="password">
+        </p>
+        <p>
+            <label>Phone Number:</label>
+            <input id="phoneNumber" name="phoneNumber" type="tel" formControlName="phoneNumber">
+        </p>
+        <p>
+            <label>dob:</label>
+            <input id="dob" name="dob" type="date" formControlName="dob">
+        </p>
+        <p>
+            <button class="btn signup-volunteer-btn" id="submit" type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+
+    <p><span id='display'></span></p>
+
+</form>

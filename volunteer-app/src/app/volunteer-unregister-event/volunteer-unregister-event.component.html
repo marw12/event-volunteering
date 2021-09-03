@@ -1,0 +1,16 @@
+<h2>Unregister to Volunteer at an Event</h2>
+
+<form [formGroup]="unregisterForm" (ngSubmit)="submit()" class="form-container">
+  <h3>Unregister from Event</h3>
+  <div>
+      <select id='unreg-event-id' formControlName="event">
+          <option [ngValue]="null" disabled>Select Event</option>
+          <option *ngFor="let event of vEventsFor" [ngValue]="event.id"> {{ event.name }} </option>
+      </select>
+      <div id="required-event-id" *ngIf="submitted && !unregisterForm.controls.event?.valid" style="font-size:smaller;color:red">*required</div>
+  </div>
+  
+  <button id='unreg-submit-button' type="submit" style="padding:3px; margin:5px">Unregister from Event</button>
+  <div id="message" *ngIf="submitted && !success" style="font-size:smaller;color:red">{{message}}</div>
+  <div id="success-message" *ngIf="submitted && success" style="font-size:smaller;color:green">{{message}}</div>
+</form>

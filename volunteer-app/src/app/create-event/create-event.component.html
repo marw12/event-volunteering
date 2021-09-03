@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Create New Event</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-container">
+        <h2>Create New Event</h2>
+        <div class="form-group">
+          <label>Event Name</label>
+          <input type="text" class="form-control" formControlName="name"
+            [ngClass]="{'is-invalid': submitted && f.name.errors}" />
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">>> required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" formControlName="category"
+            [ngClass]="{'is-invalid': submitted && f.category.errors}" />
+          <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" class="form-control" formControlName="date"
+            [ngClass]="{'is-invalid':submitted && f.date.errors}" />
+          <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+            <div *ngIf="f.date.errors.required">>> required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Start Time</label>
+          <input type="time" class="form-control" formControlName="startTime"
+            [ngClass]="{'is-invalid': submitted && f.startTime.errors}" />
+          <div *ngIf="submitted && f.startTime.errors" class="invalid-feedback">
+            <div *ngIf="f.startTime.errors.required">>> required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>End Time</label>
+          <input type="time" class="form-control" formControlName="endTime"
+            [ngClass]="{'is-invalid': submitted && f.endTime.errors}" />
+          <div *ngIf="submitted && f.endTime.errors" class="invalid-feedback">
+            <div *ngIf="f.endTime.errors.required">>> required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Organizer Name</label>
+          <input type="text" class="form-control" formControlName="organizer"
+            [ngClass]="{'is-invalid': submitted && f.organizer.errors}" />
+          <div *ngIf="submitted && f.organizer.errors" class="invalid-feedback">
+            <div *ngIf="f.organizer.errors.required">>> required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Create Event</button>
+        </div>
+        <h4 id="check" *ngIf=createdEvent>The event has been created</h4>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<h2>Update User Information</h2>
+<h3>Type in new changes</h3>
+<form [formGroup]="updateUserForm" class="form-container">
+    <h2>Update Profile</h2>
+    <!-- Email -->
+    <div class="form-group">
+        <label for="updateEmail">Email Address</label>
+        <input type="text" class='form-control' formControlName="updateEmail" id="updateEmail"
+            [ngClass]="{'is-invalid': submitted && f.updateEmail.errors}" />
+        <div *ngIf="submitted && f.updateEmail.errors" class="invalid-feedback">
+            <div *ngIf="f.updateEmail.errors.required" style="color:rgb(255, 109, 109)">>> Email required </div>
+            <div *ngIf="f.updateEmail.errors.email " style="color:rgb(255, 109, 109)">Email must be a valid email
+                address</div>
+        </div>
+    </div>
+
+    <p><button (click)="updateUserEmail()" id="updateEmailBtn">Change Email</button></p>
+    <p><span id='displayUpdateEmail'></span></p>
+
+    <!-- Password -->
+    <div class="form-group">
+        <label for="updatePassword">Password</label>
+        <input type="password" class='form-control' formControlName="updatePassword" id="updatePassword1" />
+        <label for="updatePassword">Re-enter password</label>
+        <input type="password" class='form-control' formControlName="updatePassword" id="updatePassword2" />
+
+    </div>
+
+    <p><button (click)="updatePassword()" id="updatePasswordBtn">Change Password</button></p>
+    <p><span id='displayUpdatePassword'></span></p>
+
+    <!-- First name -->
+    <div class="form-group">
+        <label for="updateFirstName">First Name</label>
+        <input type="text" class='form-control' formControlName="updateFirstName" id="updateFirstName"
+            [ngClass]="{'is-invalid': submitted && f.updateFirstName.errors}" />
+        <div *ngIf="submitted && f.updateFirstName.errors" class="invalid-feedback">
+            <div *ngIf="f.updateFirstName.errors.required" style="color:rgb(255, 109, 109)">>> first name required
+            </div>
+        </div>
+    </div>
+
+    <p><button (click)="updateFirstName()" id="updateFirstNameBtn">Change First Name</button></p>
+    <p><span id='displayUpdateFirstName'></span></p>
+
+
+    <!-- Last name -->
+    <div class="form-group">
+        <label for="updateLastName">Last Name</label>
+        <input type="text" class='form-control' formControlName="updateLastName" id="updateLastName" />
+    </div>
+
+    <p><button (click)="updateLastName()" id="updateLastNameBtn">Change Last Name</button></p>
+    <p><span id='displayUpdateLastName'></span></p>
+
+    <!-- Phone number -->
+    <div class="form-group">
+        <label for="updatePhoneNbr">Phone Number</label>
+        <input type="tel" class='form-control' formControlName="updatePhoneNbr" id="updatePhoneNbr"
+            [ngClass]="{'is-invalid': submitted && f.updatePhoneNbr.errors}" />
+        <div *ngIf="submitted && f.updatePhoneNbr.errors" class="invalid-feedback">
+            <div *ngIf="f.updatePhoneNbr.errors.pattern " style="color:rgb(255, 109, 109)"> Phone number is invalid
+                (must be 10 numbers) </div>
+        </div>
+    </div>
+
+    <p><button (click)="updatePhoneNbr()" id="updatePhoneNbrBtn">Change Phone Number</button></p>
+    <p><span id='displayupdatePhoneNbr'></span></p>
+
+    <!-- Date of birth -->
+    <div class="form-group">
+        <label for="updateDob">Date of birth</label>
+        <input type="date" class='form-control' formControlName="updateDob" id="updateDob"
+            [ngClass]="{'is-invalid': submitted && f.updateDob.errors}" />
+        <div *ngIf="submitted && f.updateDob.errors" class="invalid-feedback">
+        </div>
+    </div>
+
+    <p><button (click)="updateDob()" id="updateDobBtn">Change Date of Birth</button></p>
+    <p><span id='displayUpdateDob'></span></p>
+
+</form>

@@ -1,0 +1,20 @@
+<h2>Add Event Note</h2>
+
+<form [formGroup]="createEventNoteForm" (ngSubmit)="addEventNote()" class="form-container">
+    <div>
+        <select id='eventnote-id' formControlName="eventnote" style="padding:3px; margin:5px; min-width:10%">
+            <option [ngValue]="null" disabled>Select Event</option>
+            <option *ngFor="let event of owned_events" [ngValue]="event.id" [id]="event.id"> {{event.name}} </option>
+        </select>
+    </div>
+
+    <div>
+        <label>Note: </label>
+        <input id="neweventnote" type="text" formControlName="addeventnote" />
+        
+    </div>
+
+
+    <button id='addEventNote-button'>Add Note to Event</button>
+    <p><span id='addEventNoteResponse'></span></p>
+</form>
